@@ -68,6 +68,19 @@ public class TCBTest {
         navigateBack(2);
         wait(3);
     }
+    @Test
+    public void invalidLogin(){
+        String username = testData.getProperty("invalid_username");
+        String password = testData.getProperty("invalid_password");
+        String errorMessage = testData.getProperty("invalid_login_errText");
+
+        topcashbackPage.clickSignIn();
+        loginPage.setInputEmail(username);
+        loginPage.setInputPassword(password);
+        loginPage.clickLogin();
+        Assertions.assertEquals(errorMessage,loginPage.getErrorMessageText(),"Texts are equal");
+
+    }
 
     @AfterEach
     public void tearDown(){

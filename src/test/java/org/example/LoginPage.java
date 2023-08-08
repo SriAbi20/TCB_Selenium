@@ -22,6 +22,9 @@ public class LoginPage {
     @FindBy (xpath ="//button[@type='submit']")
     private WebElement loginBtn ;
 
+    @FindBy(css = ".gecko-alert.gecko-alert-warning.gecko-micro.gecko-login-error")
+    private WebElement errorMessageElement;
+
     public LoginPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -38,6 +41,9 @@ public class LoginPage {
     public void clickLogin(){
         wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
         loginBtn.click();
+    }
+    public String getErrorMessageText() {
+        return errorMessageElement.getText();
     }
 
 }
