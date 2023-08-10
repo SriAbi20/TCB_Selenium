@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7ecdace-2289-4b84-a04f-c2b388bf60d5" name="Changes" comment="first commit">
+    <list default="true" id="d7ecdace-2289-4b84-a04f-c2b388bf60d5" name="Changes" comment="Added invalid login test case">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/CommonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/SummerTimeDealsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/HomePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/TCBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/TCBTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/testdata.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/testdata.properties" afterDir="false" />
     </list>
@@ -47,7 +50,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.TCBTest.invalidLogin">
+  <component name="RunManager" selected="JUnit.TCBTest.testSummerTimeDeals">
     <configuration name="TCBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TCBSelenium" />
       <extension name="coverage">
@@ -79,6 +82,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TCBTest.testSummerTimeDeals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TCBSelenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TCBTest" />
+      <option name="METHOD_NAME" value="testSummerTimeDeals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TCBTest.testTCB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TCBSelenium" />
       <extension name="coverage">
@@ -95,8 +114,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TCBTest.testsuccessfulSearchTCB" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TCBSelenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.TCBTest" />
+      <option name="METHOD_NAME" value="testsuccessfulSearchTCB" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TCBTest.testSummerTimeDeals" />
+        <item itemvalue="JUnit.TCBTest.testsuccessfulSearchTCB" />
         <item itemvalue="JUnit.TCBTest.invalidLogin" />
         <item itemvalue="JUnit.TCBTest.testTCB" />
         <item itemvalue="JUnit.TCBTest" />
@@ -120,19 +157,28 @@
       <option name="project" value="LOCAL" />
       <updated>1691527123034</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added invalid login test case">
+      <option name="closed" value="true" />
+      <created>1691529509673</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691529509673</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Added invalid login test case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added invalid login test case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/org/example/HomePage.java</url>
-          <line>19</line>
+          <line>24</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

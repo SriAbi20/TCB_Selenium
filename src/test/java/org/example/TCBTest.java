@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.example.utils.CommonUtils;
 
 
 
@@ -25,6 +26,9 @@ public class TCBTest {
     private LoginPage loginPage ;
     private HomePage homePage;
     private ItemPage itemPage;
+    private CommonUtils commonUtils;
+
+    private SummerTimeDealsPage summerDealPage;
 
     @BeforeEach
     public void setUp(){
@@ -38,6 +42,8 @@ public class TCBTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         itemPage = new ItemPage(driver);
+        summerDealPage = new SummerTimeDealsPage(driver);
+        commonUtils = new CommonUtils(driver);
 
         driver.get("https://www.topcashback.co.uk/");
         if(topcashbackPage.isAcceptCookiesButtonVisible()) {
@@ -52,10 +58,11 @@ public class TCBTest {
 
     }
     @Test
-    public void testTCB(){
+    public void testsuccessfulSearchTCB(){
         String username = testData.getProperty("username");
         String password = testData.getProperty("password");
         String searchText = testData.getProperty("searchText");
+        String logoutText = testData.getProperty("logoutmessage");
 
         topcashbackPage.clickSignIn();
         loginPage.setInputEmail(username);
@@ -66,7 +73,11 @@ public class TCBTest {
         homePage.clickSearchResultItem(0);
         Assertions.assertEquals(searchText,itemPage.getMerchantHeading(),"Texts are equal");
         navigateBack(2);
-        wait(3);
+        homePage.clickAccountIcon();
+        homePage.clickSignOut();
+        commonUtils.customWait(5);
+        Assertions.assertEquals(logoutText,homePage.getLogoutMessageText(),"Texts are equal");
+        commonUtils.customWait(10);
     }
     @Test
     public void invalidLogin(){
@@ -79,20 +90,34 @@ public class TCBTest {
         loginPage.setInputPassword(password);
         loginPage.clickLogin();
         Assertions.assertEquals(errorMessage,loginPage.getErrorMessageText(),"Texts are equal");
-
     }
 
+    @Test
+    public void testSummerTimeDeals(){
+        String username = testData.getProperty("username");
+        String password = testData.getProperty("password");
+        String expectedUrl="https://www.topcashback.co.uk/hubs/summertime-hub/";
+        String currentUrl;
+
+        topcashbackPage.clickSignIn();
+        loginPage.setInputEmail(username);
+        loginPage.setInputPassword(password);
+        loginPage.clickLogin();
+        homePage.clickSummertimeDealsLink();
+        currentUrl=driver.getCurrentUrl();
+        Assertions.assertEquals(expectedUrl,currentUrl,"Urls are equal");
+        summerDealPage.scrolltohealthandBeauty();
+        summerDealPage.clickHealthAndBeautyElement(0);
+        navigateBack(1);
+        summerDealPage.scrolltoGettingStarted();
+        commonUtils.customWait(5);
+
+    }
     @AfterEach
     public void tearDown(){
         driver.quit();
     }
-    private void wait(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+
     private void navigateBack (int times){
         for(int i = times;i>0;i--){
             driver.navigate().back();
